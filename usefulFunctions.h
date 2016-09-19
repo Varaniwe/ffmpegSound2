@@ -1,9 +1,12 @@
 #pragma once
 
-#include <dshow.h>
+#include <windows.h>
+#include <uuids.h>
+#include <strmif.h>
 #include <iostream>
 #include <string>
 #include <vector>
+#include <memory>
 
 extern "C"
 {
@@ -18,5 +21,4 @@ char* getCmdOption(char ** begin, char ** end, const std::string & option);
 bool cmdOptionExists(char** begin, char** end, const std::string& option);
 
 std::wstring utf8_decode(const std::string &str);
-char *dup_wchar_to_utf8(wchar_t *w);
-
+std::shared_ptr<char> dup_wchar_to_utf8(wchar_t *w);
